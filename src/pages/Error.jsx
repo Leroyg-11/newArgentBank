@@ -11,7 +11,7 @@ const Error = () => {
   return (
     <div>
       <h1>
-        Error
+        Error 404 <br />
         <button onClick={redirect}>Back to home</button>
       </h1>
     </div>

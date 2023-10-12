@@ -25,8 +25,8 @@ const App = () => {
             />
             <Route path="/auth/*" element={<AuthRouter />} />
             <Route path="/login" element={<Login />} />
+            <Route path="*" element={<Error />} />
           </Route>
-          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </div>

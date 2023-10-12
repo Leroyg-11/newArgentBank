@@ -3,8 +3,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #ffffff;
-  background-color: rgb(67, 62, 62);
+  /* color: #ffffff; */
+  /* background-color: rgb(67, 62, 62); */
 }
 
 body {

@@ -1,10 +1,13 @@
 import React from "react";
+import BannerIndex from "../components/BannerIndex";
+import Features from "../components/Features";
 
 const Home = () => {
   return (
-    <div>
-      <h1>HomePage</h1>
-    </div>
+    <section>
+      <BannerIndex />
+      <Features />
+    </section>
   );
 };
 
