@@ -5,11 +5,11 @@ import { Navigate } from "react-router-dom";
 const AuthGuard = ({ children }) => {
   const userToken = useSelector((state) => state.user.user);
 
-  if (userToken === null) {
-    return <Navigate to="/login" />;
+  if (userToken) {
+    return children;
+  } else {
+    return <Navigate to="/auth/login" />;
   }
-
-  return children;
 };
 
 export default AuthGuard;

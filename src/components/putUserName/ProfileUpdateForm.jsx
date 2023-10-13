@@ -42,7 +42,7 @@ const ProfileUpdateForm = ({ onUserNameUpdate }) => {
           </button>
         </form>
       </section>
-      <div className="color-white">{profileData.email}</div>
+      {/* <div className="color-white">{profileData.email}</div> */}
     </main>
   );
 };

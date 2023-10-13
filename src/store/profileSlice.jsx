@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { hostName } from "../api";
-// import { loginUser } from "./userSlice";
-// import { useSelector } from "react-redux";
 
 export const profileUser = createAsyncThunk(
   "/user/profile",
@@ -18,9 +16,7 @@ export const profileUser = createAsyncThunk(
       }
     );
     const response = await request.data.body;
-    // console.log(response); OKKK
-    // dispatch({ type: GET_PORIFLE, payload: response });
-    // localStorage.setItem("profil", JSON.stringify(response));
+
     return response;
   }
 );
@@ -30,11 +26,7 @@ const profileSlice = createSlice({
   initialState: {
     profile: null,
   },
-  // reducers: {
-  //   profileUser: (state, action) => {
-  //     state.profile = action.payload;
-  //   },
-  // },
+
   extraReducers: (builder) => {
     builder
       .addCase(profileUser.pending, (state) => {

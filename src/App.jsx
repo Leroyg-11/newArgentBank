@@ -24,9 +24,9 @@ const App = () => {
                 </AuthGuard>
               }
             />
-            <Route path="/userNameUpdate" element={<ProfileUpdatePage />} />
+            <Route path="/profileUpdate" element={<ProfileUpdatePage />} />
             <Route path="/auth/*" element={<AuthRouter />} />
-            <Route path="/login" element={<Login />} />
+            {/* <Route path="/login" element={<Login />} /> */}
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>

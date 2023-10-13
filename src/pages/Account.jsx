@@ -16,7 +16,6 @@ const Account = (props) => {
   //   navigate("/login");
   // };
 
-  const token = useSelector((state) => state.user.user);
   // console.log(token); // OKKK
 
   const profileUserData = useSelector((state) => state.profile.user);

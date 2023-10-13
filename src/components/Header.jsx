@@ -38,18 +38,26 @@ const Header = () => {
         <h1 className="sr-only">Argent Bank</h1>
 
         <div className="nav-logged-container">
-          <Link className="nav-info-user main-nav-item" to="/account">
+          <Link className="nav-info-user main-nav-item" to="/">
             <i className="fa fa-user-circle"></i>
             <p>{profileUserData ? profileUserData.firstName : ""}</p>
           </Link>
 
           {token === null ? (
-            <Link to="/login" className="main-nav-item">
-              <div className="main-nav-item">
-                Sign in
-                <i className="fa fa-sign-out"></i>
-              </div>
-            </Link>
+            ((
+              <Link className="nav-info-user main-nav-item" to="/account">
+                <i className="fa fa-user-circle"></i>
+                <p>{profileUserData ? profileUserData.firstName : ""}</p>
+              </Link>
+            ),
+            (
+              <Link to="/auth/login" className="main-nav-item">
+                <div className="main-nav-item">
+                  Sign in
+                  <i className="fa fa-sign-out"></i>
+                </div>
+              </Link>
+            ))
           ) : (
             <Link
               onClick={handleLogout}

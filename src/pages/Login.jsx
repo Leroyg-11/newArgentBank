@@ -23,7 +23,7 @@ const Login = () => {
     };
     dispatch(loginUser(userCredential)).then((result) => {
       if (result.payload) {
-        navigate("/account");
+        navigate("/account/*");
         const token = result.payload;
         dispatch(profileUser(token)).then((res) => {
           if (res.payload) {
