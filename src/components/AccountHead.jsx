@@ -8,7 +8,7 @@ const AccountHead = (props) => {
         <h1>Welcome back</h1>
 
         <h1>{props.h1}</h1>
-        <Link to="/">
+        <Link to="/userNameUpdate">
           <button className="edit-button">Edit Name</button>
         </Link>
       </div>

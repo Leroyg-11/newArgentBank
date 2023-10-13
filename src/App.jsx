@@ -7,6 +7,7 @@ import Account from "./pages/Account";
 import AuthGuard from "./services/AuthGuard";
 import Error from "./pages/Error";
 import AuthRouter from "./services/AuthRouter";
+import ProfileUpdatePage from "./pages/ProfileUpdatePage";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
                 </AuthGuard>
               }
             />
+            <Route path="/userNameUpdate" element={<ProfileUpdatePage />} />
             <Route path="/auth/*" element={<AuthRouter />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<Error />} />

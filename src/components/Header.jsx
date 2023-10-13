@@ -14,7 +14,7 @@ const Header = () => {
   let handleLogout = (e) => {
     e.preventDefault();
     dispatch(logoutUser());
-    navigate("/login");
+    navigate("/");
     dispatch(profileUser.pending());
   };
 
