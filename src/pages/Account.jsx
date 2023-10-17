@@ -1,25 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { profileUser } from "../store/profileSlice";
-import { logoutUser } from "../store/userSlice";
+// import { profileUser } from "../store/profileSlice";
+// import { logoutUser } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
 import AccountContent from "../components/AccountContent";
 import AccountHead from "../components/AccountHead";
+import { profileUser } from "../store/profileSlice";
 
 const Account = (props) => {
   const [profileData, setProfileData] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const getToken = useSelector((state) => state.user.user);
 
-  // let handleLogout = () => {
-  //   dispatch(logoutUser());
-  //   navigate("/login");
-  // };
-
-  // console.log(token); // OKKK
+  useEffect(() => {
+    // Mettre à jour les données de l'utilisateur à chaque chargement de la page
+    dispatch(profileUser(getToken));
+  }, [dispatch, getToken]);
 
   const profileUserData = useSelector((state) => state.profile.user);
-  console.log(profileUserData); // OKKK
+  console.log(profileUserData);
+
+  // OKKK
 
   return (
     <main className="main bg-dark">
@@ -31,7 +33,7 @@ const Account = (props) => {
         h1={
           `${profileUserData ? profileUserData.firstName : ""}` +
           " " +
-          `${profileUserData ? profileUserData.lastName : ""}` +
+          `${profileUserData ? profileUserData.userName : ""}` +
           " !"
         }
       />

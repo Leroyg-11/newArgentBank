@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ProfileUpdateForm.scss";
-import ProfilPut from "../../store/putUserName/ProfilPut";
+// import ProfilPut from "../../store/putUserName/ProfilPut";
 import { useSelector } from "react-redux";
 
 const ProfileUpdateForm = ({ onUserNameUpdate }) => {

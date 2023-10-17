@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import { useNavigate } from "react-router-dom";
@@ -18,11 +18,16 @@ const Header = () => {
     dispatch(profileUser.pending());
   };
 
-  const token = useSelector((state) => state.user.user);
+  const getToken = useSelector((state) => state.user.user);
   // console.log(token); OKKK
 
+  useEffect(() => {
+    // Mettre à jour les données de l'utilisateur à ue chargement de la pagchaqe
+    dispatch(profileUser(getToken));
+  }, [dispatch, getToken]);
+
   const profileUserData = useSelector((state) => state.profile.user);
-  // console.log(profileUserData); OKKK
+  console.log(profileUserData);
 
   return (
     <div className="account-header">
@@ -38,16 +43,16 @@ const Header = () => {
         <h1 className="sr-only">Argent Bank</h1>
 
         <div className="nav-logged-container">
-          <Link className="nav-info-user main-nav-item" to="/">
+          <Link className="nav-info-user main-nav-item" to="/account">
             <i className="fa fa-user-circle"></i>
-            <p>{profileUserData ? profileUserData.firstName : ""}</p>
+            <p>{profileUserData ? profileUserData.userName : ""}</p>
           </Link>
 
-          {token === null ? (
+          {getToken === null ? (
             ((
               <Link className="nav-info-user main-nav-item" to="/account">
                 <i className="fa fa-user-circle"></i>
-                <p>{profileUserData ? profileUserData.firstName : ""}</p>
+                <p>{profileUserData ? profileUserData.userName : ""}</p>
               </Link>
             ),
             (
