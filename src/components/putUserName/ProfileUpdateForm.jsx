@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./ProfileUpdateForm.scss";
 // import ProfilPut from "../../store/putUserName/ProfilPut";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProfileUpdateForm = ({ onUserNameUpdate }) => {
   const [newUserName, setNewUserName] = useState("");
   const profileData = useSelector((state) => state.profile.user);
+  const dispatch = useDispatch();
+
   console.log(profileData);
 
   const handleUserNameChange = (e) => {
@@ -16,6 +18,7 @@ const ProfileUpdateForm = ({ onUserNameUpdate }) => {
     e.preventDefault();
     // Appeler la fonction pour mettre à jour le nom d'utilisateur ici
     onUserNameUpdate(newUserName);
+    // dispatch(profileUser());
   };
 
   const onSubmit = (e) => {

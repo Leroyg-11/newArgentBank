@@ -19,15 +19,14 @@ const Header = () => {
   };
 
   const getToken = useSelector((state) => state.user.user);
-  // console.log(token); OKKK
+
+  const profileUserData = useSelector((state) => state.profile.user);
+  console.log(profileUserData);
 
   useEffect(() => {
     // Mettre à jour les données de l'utilisateur à ue chargement de la pagchaqe
     dispatch(profileUser(getToken));
   }, [dispatch, getToken]);
-
-  const profileUserData = useSelector((state) => state.profile.user);
-  console.log(profileUserData);
 
   return (
     <div className="account-header">
@@ -46,6 +45,7 @@ const Header = () => {
           <Link className="nav-info-user main-nav-item" to="/account">
             <i className="fa fa-user-circle"></i>
             <p>{profileUserData ? profileUserData.userName : ""}</p>
+            {/* <p>{profileUserData ? profileUserData.id : ""}</p> */}
           </Link>
 
           {getToken === null ? (

@@ -24,7 +24,7 @@ const ProfileUpdatePage = () => {
       )
       .then((response) => {
         // Mettez à jour le profil de l'utilisateur dans Redux
-        dispatch(profileUser());
+        dispatch(profileUser(getToken));
         console.log(response.data.body.userName);
         setFreshUserName(response.data.body.userName);
       })
@@ -47,16 +47,3 @@ const ProfileUpdatePage = () => {
 };
 
 export default ProfileUpdatePage;
-
-// import React from "react";
-// import ProfileUpdateForm from "../components/putUserName/ProfileUpdateForm";
-
-// const ProfileUpdatePage = () => {
-//   return (
-//     <div>
-//       <ProfileUpdateForm />
-//     </div>
-//   );
-// };
-
-// export default ProfileUpdatePage;
